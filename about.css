@@ -1,0 +1,429 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden; 
+  justify-content: flex-start;
+  font-family: "Noto Serif Armenian", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  position: relative;
+}
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+    /* background: url("pictures/bg-products.png");
+    background-size: cover;
+    background-repeat: no-repeat; */
+    background:white;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+}
+
+.header {
+    z-index: 10000;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    color: #06ad00;
+    box-shadow: 0 0.1vw 2vw rgba(0, 0, 0, 0.25);
+    padding: 0.3vw 5%;
+}
+
+#bg-logo {
+    width: 20%;
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 1;
+    background: linear-gradient(to right, rgb(96, 206, 0) 0%, rgb(0, 162, 10) 100%);
+    transition: display 1s ease;
+}
+
+.logo img {
+    max-width: 10vw;
+}
+
+.homepage-logo {
+    cursor: pointer;
+    padding: 0;
+}
+
+.nav {
+    display: flex;
+    gap: 15px;
+    box-sizing: border-box;
+    padding: 7px 0 5px 50px;
+}
+
+.nav>a {
+    position: relative;
+    color: #06ad00;
+    text-decoration: none;
+    font-size: 0.9vw;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    padding: 0.8vw 1.2vw;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: color 0.4s ease-in-out;
+}
+
+/* Background gradient */
+.nav a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #60CE00 0%, #00A20A 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    z-index: -1;
+}
+
+.nav a:hover {
+    color: white;
+}
+
+.nav a:hover::before {
+    opacity: 1;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-container input {
+    padding: 0.5vw 2vw;
+    border-radius: 5px;
+    border: none;
+    background: linear-gradient(to right, rgb(96, 206, 0, 0.4) 0%, rgb(0, 162, 10, 0.4) 100%);
+    color: #007007;
+    border-style: none;
+}
+
+.search-container input::placeholder {
+    color: green;
+    font-size: 0.7vw;
+    padding: 0.2vw 0.3vw;
+    font-weight: 500;
+}
+
+.search-container .search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-45%);
+}
+
+.search-icon img {
+    width: 1vw;
+    height: auto;
+}
+
+.lang-select {
+    position: relative;
+    display: inline-block;
+}
+
+.lang-btn {
+    background-color: #ffffff;
+    border-style: none;
+    padding: 0.4vw 0.6vw;
+    border-radius: 5px;
+    font-size: 0.9vw;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lang-dropdown {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background-color: #fff;
+    min-width: 160px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    font-size: 0.9vw;
+}
+
+.lang-dropdown a {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: black;
+    transition: background-color 0.2s;
+}
+
+.lang-dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+.show {
+    display: block;
+}
+
+.menu-icon img {
+    width: 2vw;
+}
+
+.menu-icon {
+    display: none;
+}
+
+
+.menu-section {
+    width: 26%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: url("pictures/bg-products.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    
+    padding: 16vw 4vw 8vw;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.menu-page-text {
+    display: inline;
+    width: 16vw;
+    font-size: 2.6vw;
+    font-weight: 550;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right,white,white, #98ff3d, white, white);
+    animation: move1 3s linear infinite;
+	background-size: 200% auto;
+    border-bottom: 2px solid white;
+    padding: 1vw 0;
+}
+
+@keyframes move1 { to { background-position: 200% center} }
+
+
+@keyframes move2 { 
+    from { opacity: 0; }
+    to { opacity: 1;} }
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 3vw 0;
+    gap: 1vw;
+    transform: translateX(-0.5vw);
+}
+
+
+.menu-button {
+    width: 23vw;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1vw 0.5vw;
+    background: transparent;
+    border-radius: 0.5vw;
+    font-size: 1.2vw;
+    font-weight: 510;
+    color: white;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    font-family: "Noto Serif Armenian", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    transition: all 0.4s ease;
+
+  }
+  
+  
+  .arrow {
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .menu-button:hover {
+    background: linear-gradient(to right,white, #b7ff78,  white, white);
+    animation: move2 0.5s ease-in, move1 3s linear infinite;
+	background-size: 200% auto;
+    color: #00a20a;
+    margin: 0 auto;
+  }
+
+  
+  /* .menu-button:hover .arrow {
+    animation: slide-right .6s ease-out both;
+  } */
+  /* arrow animation */
+  @keyframes slide-right {
+    0% {
+      transform: translateX(-10px);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .menu-button:active {
+    transform: translate(1px , 1px);
+    transition-duration: .2s;
+  }
+
+.book-section {
+  height: 100vh;
+  width: 75%;
+  padding: 40px 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-left: 26%;
+  margin-top: 3%;
+  background: linear-gradient(to right, #ffffff2d 0%, #60ce002d 50%, #60CE002d 100%);
+}
+.book-section > .container {
+  height: 40.25vw;
+  width: 54.6vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2%;
+  margin-bottom: 30px;
+  perspective: 1200px;
+}
+
+
+
+.container > .right {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  transition: 0.7s ease-in-out;
+  transform-style: preserve-3d;
+}
+.book-section > .container > .right {
+  right: 0;
+  transform-origin: left;
+  border-radius: 10px 0 0 10px;
+}
+.right > figure.front,
+.right > figure.back {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-size: 200%;
+  background-repeat: no-repeat;
+  backface-visibility: hidden;
+  background-color: white;
+  overflow: hidden;
+}
+.right > figure.front {
+  background-position: right;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 2px 2px 15px -2px rgba(0, 0, 0, 0.2);
+}
+.right > figure.back {
+  background-position: left;
+  border-radius: 10px 0 0 10px;
+  box-shadow: -2px 2px 15px -2px rgba(0, 0, 0, 0.2);
+  transform: rotateY(180deg);
+}
+.flip {
+  transform: rotateY(-180deg);
+}
+.flip::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  border-radius: 0 10px 10px 0;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.book-section > button {
+  border: 2px solid #ef9f00;
+  background-color: transparent;
+  color: #ef9f00;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.3s ease-in-out;
+}
+.book-section > button:focus,
+.book-section > button:active {
+  outline: none;
+}
+.book-section > p {
+  color: rgba(0, 0, 0, 0.7);
+  font-family: calibri;
+  font-size: 24px;
+}
+.book-section > p > a {
+  text-decoration: none;
+  color: #ef9f00;
+}
+.book-section > button:hover {
+  background-color: #ef9f00;
+  color: #fff;
+}
+.front#cover,
+.back#back-cover {
+  background: linear-gradient(to right, #60ce00 0%, #00a20a 100%);
+  font-family: calibri;
+  text-align: left;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  border-left: 1vw solid white;
+}
+.front#cover img {
+  width: 100%;
+  margin-bottom: 3vw;
+}
+
